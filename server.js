@@ -52,6 +52,8 @@ else{
   
 }
 
+//mongoUser="rajesh";
+
 var initParams = {
   db : {
     "mongoHost" : mongoHost,
@@ -61,7 +63,8 @@ var initParams = {
     "mongoPass" : mongoPass 
   }
 }
-mongoURLLabel += "\n db:" + db.mongoUser + ":" + db.mongoPass;
+
+mongoURLLabel += "\n db:" + initParams.db.mongoUser + ":" + initParams.db.mongoPass;
 var apartment = require('./Apartment');
 apartment.init(app,initParams);
 
