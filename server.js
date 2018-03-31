@@ -61,7 +61,7 @@ var initParams = {
     "mongoPass" : mongoPass 
   }
 }
-
+mongoURLLabel += "\n db:" + db.mongoUser + ":" + db.mongoPass;
 var apartment = require('./Apartment');
 apartment.init(app,initParams);
 
