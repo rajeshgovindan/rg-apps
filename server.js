@@ -32,7 +32,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     // Provide UI label that excludes user id and pw
     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
-    mongoURLLabel = mongoURL;
+    //mongoURLLabel = mongoURL;
 
   }
 }
@@ -45,10 +45,9 @@ else{
   var mongoUser = "";
   var mongoPassword = ""
   // Provide UI label that excludes user id and pw
-  //mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-  
+  mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
   mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
-  mongoURLLabel = mongoURL;
+ // mongoURLLabel = mongoURL;
   
 }
 
