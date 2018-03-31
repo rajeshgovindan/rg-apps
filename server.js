@@ -63,7 +63,7 @@ var initParams = {
   }
 }
 
-mongoURLLabel += "\n db:" + initParams.db.mongoUser + ":" + initParams.db.mongoPass;
+//mongoURLLabel += "\n db:" + initParams.db.mongoUser + ":" + initParams.db.mongoPass;
 var apartment = require('./Apartment');
 apartment.init(app,initParams);
 
