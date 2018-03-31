@@ -43,7 +43,7 @@ else{
   var mongoDatabase=  "rgappdb";
   var mongoURLLabel = mongoURL = 'mongodb://';
   var mongoUser = "";
-  var mongoPass = ""
+  var mongoPassword = ""
   // Provide UI label that excludes user id and pw
   //mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
   
@@ -60,7 +60,7 @@ var initParams = {
     "mongoPort" : mongoPort,
     "mongoDbName" : mongoDatabase,
     "mongoUser": mongoUser ,
-    "mongoPass" : mongoPass 
+    "mongoPass" : mongoPassword 
   }
 }
 
