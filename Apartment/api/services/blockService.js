@@ -19,10 +19,10 @@
         })
     }
 
-    service.deleteBlock = function(block,next){
-        templates.dbConHandler(function(db){
-            db.apartment.deleteOne({"code": block},function(err,result){
-                next(err,result);
+    service.deleteBlock = function (block, next) {
+        templates.dbConHandler(function (db) {
+            db.apartment.deleteOne({ "code": block }, function (err, result) {
+                next(err, result);
             })
         })
     }
@@ -34,16 +34,27 @@
                 }
             };
             db.apartment.update({
-                "code": blockCode, newFlat, function(err, result) {
-                    next(err, result);
-                }
-            })
+                "code": blockCode
+            }, newFlat, function (err, result) {
+                next(err, result);
+            }
+            )
         })
     }
 
-    service.deleteFlat = function(blockCode,flatNo,next){
-        templates.dbConHandler(function(db){
-           // db.apartment.deleteOne({"code": blockCode, "flats.flatNo"})
+    service.deleteFlat = function (blockCode, flatNo, next) {
+        templates.dbConHandler(function (db) {
+            var removeFlat = {
+                $pull: {
+                    "flats": { "flatNo": flatNo }
+                }
+            };
+            db.apartment.update({
+                "code": blockCode
+            }, removeFlat, function (err, result) {
+                next(err, result);
+            }
+            )
         })
     }
 

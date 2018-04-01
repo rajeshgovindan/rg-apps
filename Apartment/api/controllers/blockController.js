@@ -20,7 +20,15 @@
 
             })
         });
-        app.get("/apartment/api/:block",function(req,res,next){
+
+        app.delete("/apartment/api/block/:block",function(req,res){
+            var block = req.params.block;
+            blockService.deleteBlock(block,function(err,result){
+                responseHanlder.response(res,err,result);
+            })
+        });
+
+        app.get("/apartment/api/:block",function(req,res){
             var block = req.params.block;
             blockService.getFlatDetails(block,function(err,flats){
 
@@ -28,12 +36,14 @@
             });
         });
 
-        app.delete("/apartment/api/block/:block",function(req,res,next){
-            var block = req.params.block;
-            blockService.deleteBlock(block,function(err,result){
-                responseHanlder.response(res,err,result);
+        app.post("/apartment/api/block/:block/flat",function(req,res){
+            var blockCode = req.params.block;
+            var flat = req.body;
+            var successMessage = "Flat "+ flat.flatNo + " added in Block "+ blockCode + " successfully."
+            blockService.addFlat(blockCode,flat,function(err,result){
+                responseHanlder.response(res,err,successMessage)
             })
-        });
+        })
 
         app.delete("/apartment/api/block/:block/flat/:flatNo",function(req,res,next){
             var block = req.params.block;
