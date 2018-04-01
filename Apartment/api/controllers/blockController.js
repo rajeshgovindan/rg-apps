@@ -26,11 +26,21 @@
 
                 responseHanlder.response(res,err,flats);
             });
+        });
 
-            
+        app.delete("/apartment/api/block/:block",function(req,res,next){
+            var block = req.params.block;
+            blockService.deleteBlock(block,function(err,result){
+                responseHanlder.response(res,err,result);
+            })
+        });
 
-
-            
+        app.delete("/apartment/api/block/:block/flat/:flatNo",function(req,res,next){
+            var block = req.params.block;
+            var flatNo = req.params.flatNo;
+            blockService.deleteFlat(block,flatNo,function(err,result){
+                responseHanlder.response(res,err,result);
+            })
         })
 
     }

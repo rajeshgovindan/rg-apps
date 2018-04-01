@@ -18,6 +18,14 @@
             })
         })
     }
+
+    service.deleteBlock = function(block,next){
+        templates.dbConHandler(function(db){
+            db.apartment.deleteOne({"code": block},function(err,result){
+                next(err,result);
+            })
+        })
+    }
     service.addFlat = function (blockCode, flat, next) {
         templates.dbConHandler(function (db) {
             var newFlat = {
@@ -30,6 +38,12 @@
                     next(err, result);
                 }
             })
+        })
+    }
+
+    service.deleteFlat = function(blockCode,flatNo,next){
+        templates.dbConHandler(function(db){
+           // db.apartment.deleteOne({"code": blockCode, "flats.flatNo"})
         })
     }
 
