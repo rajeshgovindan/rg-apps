@@ -1,19 +1,134 @@
-
 <html>
 
 <head>
-    <h1>Green Acres Apartment</h1>
-    <h2>Collections - Dashboard</h2>
-    <div><a href="\">Home</a></div>
 
 
+    <!-- //F0F5F4 -->
+    <style>
+        #collections {
+            background: #edeeeb none no-repeat scroll 0 0;
+        }
 
-    <link rel="stylesheet" type="text/css" href="/apartment/static/collections.css">
+        div.blueTable {
+            border: 1px solid #1C6EA4;
+            background-color: #EEEEEE;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .divTable.blueTable .divTableCell,
+        .divTable.blueTable .divTableHead {
+            border: 1px solid #AAAAAA;
+            padding: 3px 2px;
+        }
+
+        .divTable.blueTable .divTableBody .divTableCell {
+            font-size: 13px;
+        }
+
+        .divTable.blueTable .divTableRow:nth-child(even) {
+            background: #D0E4F5;
+        }
+
+        .divTable.blueTable .divTableHeading {
+            background: #1C6EA4;
+            background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+            background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+            background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+            border-bottom: 2px solid #444444;
+        }
+
+        .divTable.blueTable .divTableHeading .divTableHead {
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            border-left: 2px solid #D0E4F5;
+        }
+
+        .divTable.blueTable .divTableHeading .divTableHead:first-child {
+            border-left: none;
+        }
+
+        .blueTable .tableFootStyle {
+            font-size: 14px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background: #D0E4F5;
+            background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+            background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+            background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+            border-top: 2px solid #444444;
+        }
+
+        .blueTable .tableFootStyle {
+            font-size: 14px;
+        }
+
+        .blueTable .tableFootStyle .links {
+            text-align: right;
+        }
+
+        .blueTable .tableFootStyle .links a {
+            display: inline-block;
+            background: #1C6EA4;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        .blueTable.outerTableFooter {
+            border-top: none;
+        }
+
+        .blueTable.outerTableFooter .tableFootStyle {
+            padding: 3px 5px;
+        }
+
+        /* DivTable.com */
+
+        .divTable {
+            display: table;
+        }
+
+        .divTableRow {
+            display: table-row;
+        }
+
+        .divTableHeading {
+            display: table-header-group;
+        }
+
+        .divTableCell,
+        .divTableHead {
+            display: table-cell;
+        }
+
+        .divTableHeading {
+            display: table-header-group;
+        }
+
+        .divTableFoot {
+            display: table-footer-group;
+        }
+
+        .divTableBody {
+            display: table-row-group;
+        }
+    </style>
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="/apartment/static/collections.css"> -->
 
 </head>
 
 <body>
     <div id="collections">
+        <h1>Green Acres Apartment</h1>
+        <h2>Collections - Dashboard</h2>
+        <div>
+            <a href="\">Home</a>
+        </div>
 
         <h3>Flats details -
             <%= status %>
@@ -29,16 +144,23 @@
                         </div>
                     </div>
                     <div class="divTableBody">
-                        <% _.each(dues, function (due) { %> 
+                        <% _.each(dues, function (due) { %>
                             <div class="divTableRow">
                                 <div class="divTableCell">
-                                    <%= due.flatNo %></div>
-                        <div class="divTableCell"><%= due.ownerName %></div>
-                        <div class="divTableCell"><%= due.monYear %></div>
-                        <div class="divTableCell"><%= due.amount %></div>
-                    </div>
-                    <% }) %> 
-                                        <!-- <div class="divTableRow">
+                                    <%= due.flatNo %>
+                                </div>
+                                <div class="divTableCell">
+                                    <%= due.ownerName %>
+                                </div>
+                                <div class="divTableCell">
+                                    <%= due.monYear %>
+                                </div>
+                                <div class="divTableCell">
+                                    <%= due.amount %>
+                                </div>
+                            </div>
+                            <% }) %>
+                                <!-- <div class="divTableRow">
                         <div class="divTableCell">cell1_2</div>
                         <div class="divTableCell">cell2_2</div>
                         <div class="divTableCell">cell3_2</div>
@@ -56,22 +178,22 @@
                         <div class="divTableCell">cell3_4</div>
                         <div class="divTableCell">cell4_4</div>
                     </div> -->
-                                </div>
-                            </div>
-                            <div class="blueTable outerTableFooter">
-                                <div class="tableFootStyle">
-                                    <div class="links">
-                                        <a href="#">&laquo;</a>
-                                        <a class="active" href="#">1</a>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
-                                        <a href="#">4</a>
-                                        <a href="#">&raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-
                     </div>
+                </div>
+                <div class="blueTable outerTableFooter">
+                    <div class="tableFootStyle">
+                        <div class="links">
+                            <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">&raquo;</a>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
 
 </body>
 
