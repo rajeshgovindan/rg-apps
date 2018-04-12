@@ -1,7 +1,7 @@
 (function (service) {
     var template = require('../common/serviceTemplates');
     service.getMaintananceCollectionByBlock = function (block, month, year, next) {
-        template.dbConHandler( function (db) {
+        template.dbConHandler(function (db) {
             var pipeline = [
                 {
                     "$match": { "code": block, "flats.maintanaceChrgs.mon": { "$eq": month } }
@@ -15,6 +15,21 @@
                 },
                 {
                     "$match": { "code": block, "flats.maintanaceChrgs.mon": { "$eq": month } }
+                },
+                {
+                    
+                    "$group": {
+                        "_id": "$code",
+                        "flats" : {"$push" : {
+                            "block" : "$blockName",
+                            "flatNo": "$flats.flatNo",
+                            "ownerName": "$flats.ownerName",
+                            "paymentDate": "$flats.maintanaceChrgs.date",
+                            "amountPaid": "$flats.maintanaceChrgs.paidAmount",
+                            "excessAmountPaid" :"$flats.maintanaceChrgs.excessAmount",
+                            "isSubmitted": "$flats.maintanaceChrgs.isSubmitted"
+                        }} 
+                    }
                 }
 
             ]
@@ -26,7 +41,7 @@
     };
 
     service.maintainanceChargesDue = function (block, month, year, next) {
-        template.dbConHandler( function (db) {
+        template.dbConHandler(function (db) {
             // var pipeline = [
             //     {
             //         "$match": { "code": block, "flats.maintananceChrgs.mon": { "$nin": [month] } }

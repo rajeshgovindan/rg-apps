@@ -139,24 +139,24 @@
                         <div class="divTableRow">
                             <div class="divTableHead">FlatNo</div>
                             <div class="divTableHead">Owner Name</div>
-                            <div class="divTableHead">Month Year</div>
-                            <div class="divTableHead">Due amount</div>
+                            <div class="divTableHead">Payment Date</div>
+                            <div class="divTableHead">Amount Paid</div>
                         </div>
                     </div>
                     <div class="divTableBody">
-                        <% _.each(dues, function (due) { %>
+                        <% _.each(payments, function (payment) { %>
                             <div class="divTableRow">
                                 <div class="divTableCell">
-                                    <%= due.flatNo %>
+                                    <%= payment.flatNo %>
                                 </div>
                                 <div class="divTableCell">
-                                    <%= due.ownerName %>
+                                    <%= payment.ownerName %>
                                 </div>
                                 <div class="divTableCell">
-                                    <%= due.monYear %>
+                                    <%= payment.receivedDate %>
                                 </div>
                                 <div class="divTableCell">
-                                    <%= due.amount %>
+                                    <%= payment.amountPaid %>
                                 </div>
                             </div>
                             <% }) %>
@@ -183,12 +183,12 @@
                 <div class="blueTable outerTableFooter">
                     <div class="tableFootStyle">
                         <div class="links">
-                            <a href="#">&laquo;</a>
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
+                            <!-- <a href="#">&laquo;</a> -->
+                            <a class="active" href="#">Add Collection</a>
+                            <!-- <a href="#">2</a>
                             <a href="#">3</a>
                             <a href="#">4</a>
-                            <a href="#">&raquo;</a>
+                            <a href="#">&raquo;</a> -->
                         </div>
                     </div>
                 </div>
