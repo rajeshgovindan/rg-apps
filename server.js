@@ -1,10 +1,14 @@
 //  OpenShift sample Node application
 var express = require('express'),
   app = express(),
-  morgan = require('morgan');
+ 
+  morgan = require('morgan'),
+  bodyParser = require('body-parser');
 
 Object.assign = require('object-assign')
 app.use(express.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
@@ -51,6 +55,7 @@ else {
 
 }
 
+
 //mongoUser="rajesh";
 
 var initParams = {
@@ -95,6 +100,9 @@ var initDb = function (callback) {
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
+
+  
+    dbDetails.url += "\n" + req.headers.host;
   if (!db) {
     initDb(function (err) { });
   }
@@ -138,6 +146,8 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+
+
 // error handling
 app.use(function (err, req, res, next) {
   console.error(err.stack);
@@ -151,4 +161,6 @@ initDb(function (err) {
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 
+
 module.exports = app;
+

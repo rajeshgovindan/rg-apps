@@ -93,13 +93,25 @@
 
         template.dbConHandler(function (db) {
 
+            var mon = parseInt(collection.mon,10);
+            if(isNaN(mon)){
+                next("invalid Month",null);
+            };
+            var year = parseInt(collection.year,10);
+            if(isNaN(year)){
+                next("invalid Year",null);
+            };
+            var paidAmount = parseFloat(Number(collection.paidAmount).toFixed(2));
+            if(isNaN(paidAmount)){
+                next("invalid Year",null);
+            };
             var newValues = {
                 $push: {
                     "flats.$.maintanaceChrgs": {
                         "date": collection.date,
-                        "mon": collection.mon,
-                        "year": collection.year,
-                        "paidAmount": collection.paidAmount,
+                        "mon": mon, //collection.mon,
+                        "year": year, //collection.year,
+                        "paidAmount": paidAmount, //collection.paidAmount,
                         "excessAmount": collection.excessAmount,
                         "isSubmitted": "N"
 

@@ -132,7 +132,14 @@
 
         <h3>Flats details -
             <%= status %>
-                </h2>
+                </h3>
+
+                <div>
+                        <label name="periodCaption">For Period:</label>
+                        <input type="number"  name="periodMonth" placeholder="Enter collection month">
+                        <input type="number"   name="periodYear" placeholder="Enter collection Year">
+                        <button name="collectionDetailsButton" >Get Details</button>
+                </div>
 
                 <div class="divTable blueTable">
                     <div class="divTableHeading">
@@ -184,7 +191,7 @@
                     <div class="tableFootStyle">
                         <div class="links">
                             <!-- <a href="#">&laquo;</a> -->
-                            <a class="active" href="#">Add Collection</a>
+                            <a class="active" href="/apartment/Collection/Add">Add Collection</a>
                             <!-- <a href="#">2</a>
                             <a href="#">3</a>
                             <a href="#">4</a>

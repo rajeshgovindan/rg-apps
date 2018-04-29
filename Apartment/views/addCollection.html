@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <style type="text/css">
+    #messageWall{
+            border: 1px solid #2009e9;
+            padding: 3px 2px;
+            margin-bottom : 20px;
+            text-align: center;
+            color:red
+    }
+        .form-style-6 {
+            font: 95% Arial, Helvetica, sans-serif;
+            max-width: 400px;
+            margin: 10px auto;
+            padding: 16px;
+            background: #F7F7F7;
+        }
+
+        .form-style-6 h1 {
+            background: #43D1AF;
+            padding: 20px 0;
+            font-size: 140%;
+            font-weight: 300;
+            text-align: center;
+            color: #fff;
+            margin: -16px -16px 16px -16px;
+        }
+
+        .form-style-6 input[type="text"],
+        .form-style-6 input[type="date"],
+        .form-style-6 input[type="datetime"],
+        .form-style-6 input[type="email"],
+        .form-style-6 input[type="number"],
+        .form-style-6 input[type="search"],
+        .form-style-6 input[type="time"],
+        .form-style-6 input[type="url"],
+        .form-style-6 textarea,
+        .form-style-6 select {
+            -webkit-transition: all 0.30s ease-in-out;
+            -moz-transition: all 0.30s ease-in-out;
+            -ms-transition: all 0.30s ease-in-out;
+            -o-transition: all 0.30s ease-in-out;
+            outline: none;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            background: #fff;
+            margin-bottom: 4%;
+            border: 1px solid #ccc;
+            padding: 3%;
+            color: #555;
+            font: 95% Arial, Helvetica, sans-serif;
+        }
+
+        .form-style-6 input[type="text"]:focus,
+        .form-style-6 input[type="date"]:focus,
+        .form-style-6 input[type="datetime"]:focus,
+        .form-style-6 input[type="email"]:focus,
+        .form-style-6 input[type="number"]:focus,
+        .form-style-6 input[type="search"]:focus,
+        .form-style-6 input[type="time"]:focus,
+        .form-style-6 input[type="url"]:focus,
+        .form-style-6 textarea:focus,
+        .form-style-6 select:focus {
+            box-shadow: 0 0 5px #43D1AF;
+            padding: 3%;
+            border: 1px solid #43D1AF;
+        }
+
+        .form-style-6 input[type="submit"],
+        .form-style-6 input[type="button"] {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            padding: 3%;
+            background: #43D1AF;
+            border-bottom: 2px solid #30C29E;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            color: #fff;
+        }
+
+        .form-style-6 input[type="submit"]:hover,
+        .form-style-6 input[type="button"]:hover {
+            background: #2EBC99;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="addCollection">
+        <h1>Green Acres Apartment</h1>
+        <div>
+            <a href="\">Home</a>
+            <a href="/apartment/Collections/block/D">Collections View</a>
+        </div>
+
+
+
+        <div class="form-style-6">
+            <h1>Collection Entry</h1>
+            <% if( message.length > 0 ){ %>
+            <div id="messageWall">
+                <%= message %>
+            </div>
+
+           <% } %>
+
+            <form action="/apartment/collection/Add" method="POST">
+
+                <select id="blockCode" name="block" >
+                    <option value="A">Sunflower</option>
+                    <option value="B">Jasmine</option>
+                    <option value="C">Tulip</option>
+                    <option value="D" selected>Daffodil</option>
+                </select>
+                
+                <div>
+                        <label name="periodCaption">Period:</label>
+                    <input type="number"  name="periodMonth" placeholder="Enter collection month" value=<%= periodMonth %>  />
+                    <input type="number"   name="periodYear" placeholder="Enter collection Year" value=<%= periodYear %>>
+                </div>
+                <select id="flatNo" name="flat">
+                    <option value="D1">D1-Rajesh Govindan</option>
+                    <option value="D2">D2-Ravi</option>
+                    <option value="D3">D3-Jacob</option>
+                    <option value="D4">D4-Madhusoodhanan</option>
+                    <option value="D5">D5-Dr.Madhumathi</option>
+                </select>
+                <label name="receviedDateCaption">Received Date:</label>
+                <input type="date" name="receviedDate" placeholder="Enter recevied Date" />
+                <input type="text" name="amount" placeholder="Enter Amount" />
+
+                <input type="submit" value="Send" />
+            </form>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
