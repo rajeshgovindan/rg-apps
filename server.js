@@ -36,7 +36,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     // Provide UI label that excludes user id and pw
     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
     mongoURL += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-    mongoURLLabel = mongoURL;
+    //mongoURLLabel = mongoURL;
 
   }
 }
@@ -55,7 +55,7 @@ else {
 
 }
 
-
+//mongodb://user2SC:BGim3fx4BHindyH3@172.30.76.145:27017/sampledb
 //mongoUser="rajesh";
 
 var initParams = {

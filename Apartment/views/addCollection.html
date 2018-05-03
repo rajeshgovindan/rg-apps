@@ -125,11 +125,14 @@
                     <input type="number"   name="periodYear" placeholder="Enter collection Year" value=<%= periodYear %>>
                 </div>
                 <select id="flatNo" name="flat">
-                    <option value="D1">D1-Rajesh Govindan</option>
+                        <% _.each(flats, function (flat) { %>
+                            <option value=<%=flat.flatNo %>><%= flat.flatNo %>-<%= flat.ownerName %></option>
+                            <%} )%>
+                    <!-- <option value="D1">D1-Rajesh Govindan</option>
                     <option value="D2">D2-Ravi</option>
                     <option value="D3">D3-Jacob</option>
                     <option value="D4">D4-Madhusoodhanan</option>
-                    <option value="D5">D5-Dr.Madhumathi</option>
+                    <option value="D5">D5-Dr.Madhumathi</option> -->
                 </select>
                 <label name="receviedDateCaption">Received Date:</label>
                 <input type="date" name="receviedDate" placeholder="Enter recevied Date" />

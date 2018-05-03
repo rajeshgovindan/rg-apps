@@ -78,9 +78,44 @@
         app.get("/apartment/Collection/Add", function (req, res) {
             var currentDate =
                 new Date();
+            var flats = [
+                {
+                    "flatNo": "D1",
+                    "ownerName": "Rajesh Govindan"
+                },
+                {
+                    "flatNo": "D2",
+                    "ownerName": "Ravi Krishna Rao"
+                },
+                {
+                    "flatNo": "D3",
+                    "ownerName": "K.Jacob Varkey"
+                },
+                {
+                    "flatNo": "D4",
+                    "ownerName": "Madhusoodhanan"
+                },
+                {
+                    "flatNo": "D5",
+                    "ownerName": "D.Madhumathi"
+                },
+                {
+                    "flatNo": "D6",
+                    "ownerName": "T.Girija"
+                },
+                {
+                    "flatNo": "D7A",
+                    "ownerName": "Mathivanan"
+                },
+                {
+                    "flatNo": "D7B",
+                    "ownerName": "T.Vijayalaskhmi"
+                }
+            ];
             var model = {
                 "message": "",
                 "block": "D1",
+                "flats": flats,
                 "periodMonth": currentDate.getMonth() + 1,
                 "periodYear": currentDate.getFullYear()
             }
@@ -150,9 +185,44 @@
                 });
                 var currentDate =
                     new Date();
+                    var flats = [
+                        {
+                            "flatNo": "D1",
+                            "ownerName": "Rajesh Govindan"
+                        },
+                        {
+                            "flatNo": "D2",
+                            "ownerName": "Ravi Krishna Rao"
+                        },
+                        {
+                            "flatNo": "D3",
+                            "ownerName": "K.Jacob Varkey"
+                        },
+                        {
+                            "flatNo": "D4",
+                            "ownerName": "Madhusoodhanan"
+                        },
+                        {
+                            "flatNo": "D5",
+                            "ownerName": "D.Madhumathi"
+                        },
+                        {
+                            "flatNo": "D6",
+                            "ownerName": "T.Girija"
+                        },
+                        {
+                            "flatNo": "D7A",
+                            "ownerName": "Mathivanan"
+                        },
+                        {
+                            "flatNo": "D7B",
+                            "ownerName": "T.Vijayalaskhmi"
+                        }
+                    ];
                 var model = {
                     "message": "added successfully",
                     //"block": "D1",
+                    "flats":flats,
                     "periodMonth": currentDate.getMonth() + 1,
                     "periodYear": currentDate.getFullYear()
                 };
